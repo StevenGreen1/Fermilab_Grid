@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "LArSoftVersion">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "LArSoftVersion_JobName_MomentumGeV_Beam_Cosmics_SpaceCharge_vTag">
+<!ENTITY user "sgreen">
+]>
+
+<job>
+  <project name="&name;">
+  <!-- Group -->
+  <group>dune</group>
+
+  <!-- Project size -->
+  <maxfilesperjob>1</maxfilesperjob>
+  <numevents>NumberOfJobs</numevents>
+  <numjobs>NumberOfFiles</numjobs>
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>e14:prof</qual>
+    <local>LocalTarball</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <!--stage name="gen">
+    <fcl>GENFCL</fcl>
+    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/gen</outdir>
+    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/gen</logdir>
+    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/gen</workdir>
+    <?GENEVENTS?>
+    <?GENJOBS?>
+    <datatier>generated</datatier>
+    <defname>&name;_gen</defname>
+  </stage>
+
+  <stage name="filter">
+    <fcl>FILTERFCL</fcl>
+    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/filter</outdir>
+    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/filter</logdir>
+    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/filter</workdir>
+    <?FILTEREVENTS?>
+    <?FILTERJOBS?>
+    <datatier>generated</datatier>
+    <defname>&name;_gen</defname>
+  </stage>
+
+  <stage name="g4">
+    <fcl>standard_g4_dune.fcl</fcl>
+    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/g4</outdir>
+    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/g4</logdir>
+    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/g4</workdir>
+    <lines>request_memory=4096</lines>
+    <?G4EVENTS?>
+    <?G4JOBS?>
+    <datatier>simulated</datatier>
+    <defname>&name;_g4</defname>
+  </stage>
+
+  <stage name="detsim">
+    <fcl>standard_detsim_dune.fcl</fcl>
+    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/detsim</outdir>
+    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/detsim</logdir>
+    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/detsim</workdir>
+    <lines>request_memory=4096</lines>
+    <?DETSIMEVENTS?>
+    <?DETSIMJOBS?>
+    <datatier>detector-simulated</datatier>
+    <defname>&name;_detsim</defname>
+  </stage-->
+
+  <stage name="updatedreco">
+    <inputdef>InputDef</inputdef>
+    <fcl>FclScript</fcl>
+    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/pndr</outdir>
+    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/pndr</logdir>
+    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/pndr</workdir>
+    <lines>request_memory=4096</lines>
+    <numevents>NumberOfJobs</numevents>
+    <numjobs>NumberOfFiles</numjobs>
+    <datatier>detector-simulated</datatier>
+    <defname>&name;_pndr</defname>
+    <!--inputlist>FileList</inputlist-->
+    <initscript>InitScript</initscript>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
+
+</job>
