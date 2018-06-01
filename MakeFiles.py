@@ -40,9 +40,16 @@ for eventSelection in eventsToProcess:
         numberOfFiles = int(proc.stdout.read())
         print "Number of files in " + defname + " is " + str(numberOfFiles)
 
+        # Guide: https://cdcvs.fnal.gov/redmine/projects/uboonecode/wiki/Tutorial_for_Analyzers_and_Using_the_Gird
+        # numberOfJobs is the number of jobs that are used provessing the entire data set.  In this case each job should process 5 events i.e. one eighth of a file of 40
+        numberOfJobs = numberOfFiles * 8
+
+        # numberOfEvents is the maximum number of events that should be processed
+        numberOfEvents = eventsPerFile * numberOfFiles
+
         newContent = re.sub('Momentum', str(momentum), content)
-        newContent = re.sub('NumberOfFiles', str(numberOfFiles), newContent)
-        newContent = re.sub('NumberOfJobs', str(eventsPerFile * numberOfFiles), newContent)
+        newContent = re.sub('NumberOfJobs', str(numberOfJobs), newContent)
+        newContent = re.sub('NumberOfEvents', str(numberOfEvents), newContent)
         newContent = re.sub('Tag', str(tag), newContent)
         newContent = re.sub('InputDef', defname, newContent)
         newContent = re.sub('InitScript', initScript, newContent)

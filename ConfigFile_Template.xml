@@ -17,8 +17,8 @@
 
   <!-- Project size -->
   <maxfilesperjob>1</maxfilesperjob>
-  <numevents>NumberOfJobs</numevents>
-  <numjobs>NumberOfFiles</numjobs>
+  <numevents>NumberOfEvents</numevents>
+  <numjobs>NumberOfJobs</numjobs>
   <!-- Operating System -->
   <os>SL6</os>
 
@@ -83,14 +83,14 @@
   <stage name="updatedreco">
     <inputdef>InputDef</inputdef>
     <fcl>FclScript</fcl>
-    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/pndr</outdir>
-    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/pndr</logdir>
-    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/pndr</workdir>
+    <outdir>/pnfs/dune/scratch/users/sgreen/&name;/updatedreco</outdir>
+    <logdir>/pnfs/dune/scratch/users/sgreen/&name;/updatedreco</logdir>
+    <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/updatedreco</workdir>
     <lines>request_memory=4096</lines>
-    <numevents>NumberOfJobs</numevents>
-    <numjobs>NumberOfFiles</numjobs>
+    <numevents>NumberOfEvents</numevents>
+    <numjobs>NumberOfJobs</numjobs>
     <datatier>detector-simulated</datatier>
-    <defname>&name;_pndr</defname>
+    <defname>&name;_updatedreco</defname>
     <!--inputlist>FileList</inputlist-->
     <initscript>InitScript</initscript>
   </stage>

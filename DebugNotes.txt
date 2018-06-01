@@ -1,0 +1,3 @@
+dunegpvm01> jobsub_q to get NUMBER
+dunegpvm01> jobsub_fetchlog -G dune -J NUMBER.0@jobsub02.fnal.gov
+
