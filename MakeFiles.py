@@ -18,9 +18,9 @@ jobName = 'UpdatedReconstruction'
 larsoftVersion = 'v06_77_00'
 
 # These files have to live on persistent
-initScript = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_63_00_triggered_mc_info/Pndr/init.sh' 
-fclScript = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_63_00_triggered_mc_info/Pndr/protoDUNE_Reco_To_PNDR.fcl'
-localTarball = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_63_00_triggered_mc_info/local.tar'
+initScript   = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/init.sh'
+fclScript    = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/protoDUNE_reco_3ms.fcl'
+localTarball = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/local.tar'
 
 for eventSelection in eventsToProcess:
     momenta = eventSelection['Momenta']
