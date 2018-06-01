@@ -19,7 +19,7 @@ larsoftVersion = 'v06_77_00'
 
 # These files have to live on persistent
 initScript   = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/init.sh'
-fclScript    = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/protoDUNE_reco_3ms.fcl'
+fclScript    = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/my_protoDUNE_reco_3ms.fcl'
 localTarball = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/local.tar'
 
 for eventSelection in eventsToProcess:
@@ -47,7 +47,7 @@ for eventSelection in eventsToProcess:
         newContent = re.sub('InputDef', defname, newContent)
         newContent = re.sub('InitScript', initScript, newContent)
         newContent = re.sub('FclScript', fclScript, newContent)
-        newContent = re.sub('LocalTarball', localTarball, newContent)
+        newContent = re.sub('LocalTarballName', localTarball, newContent)
         newContent = re.sub('LArSoftVersion', larsoftVersion, newContent)
         newContent = re.sub('JobName', jobName, newContent)
 

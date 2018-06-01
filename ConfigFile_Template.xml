@@ -28,8 +28,8 @@
   <!-- Larsoft information -->
   <larsoft>
     <tag>&release;</tag>
-    <qual>e14:prof</qual>
-    <local>LocalTarball</local>
+    <qual>e15:prof</qual>
+    <local>LocalTarballName</local>
   </larsoft>
 
   <!-- Project stages -->
