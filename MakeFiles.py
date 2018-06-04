@@ -3,7 +3,7 @@ import os
 import re
 import subprocess
 
-tag = 1
+tag = 3
 
 templateFile = 'ConfigFile_Template.xml'
 base = open(templateFile,'r')
@@ -21,6 +21,8 @@ larsoftVersion = 'v06_77_00'
 initScript   = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/init.sh'
 fclScript    = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/my_protoDUNE_reco_3ms.fcl'
 localTarball = '/pnfs/dune/persistent/users/sgreen/LocalTarball/larsoft_v06_77_00_sample_production/local.tar'
+
+# Info on jobs expected lifetime https://cdcvs.fnal.gov/redmine/projects/larbatch/wiki/User_guide
 
 for eventSelection in eventsToProcess:
     momenta = eventSelection['Momenta']
@@ -41,8 +43,8 @@ for eventSelection in eventsToProcess:
         print "Number of files in " + defname + " is " + str(numberOfFiles)
 
         # Guide: https://cdcvs.fnal.gov/redmine/projects/uboonecode/wiki/Tutorial_for_Analyzers_and_Using_the_Gird
-        # numberOfJobs is the number of jobs that are used provessing the entire data set.  In this case each job should process 5 events i.e. one eighth of a file of 40
-        numberOfJobs = numberOfFiles * 8
+        # numberOfJobs is the number of jobs that are used provessing the entire data set.  In this case each job should process 40, this takes three times the age of the known universe so tell larsoft that the memory and time needed will be big.
+        numberOfJobs = numberOfFiles 
 
         # numberOfEvents is the maximum number of events that should be processed
         numberOfEvents = eventsPerFile * numberOfFiles

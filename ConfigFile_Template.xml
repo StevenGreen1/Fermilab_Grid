@@ -86,13 +86,14 @@
     <outdir>/pnfs/dune/scratch/users/sgreen/&name;/updatedreco</outdir>
     <logdir>/pnfs/dune/scratch/users/sgreen/&name;/updatedreco</logdir>
     <workdir>/pnfs/dune/scratch/users/sgreen/work/&name;/updatedreco</workdir>
-    <lines>request_memory=4096</lines>
+    <lines>request_memory=20480</lines>
     <numevents>NumberOfEvents</numevents>
     <numjobs>NumberOfJobs</numjobs>
     <datatier>detector-simulated</datatier>
     <defname>&name;_updatedreco</defname>
     <!--inputlist>FileList</inputlist-->
     <initscript>InitScript</initscript>
+    <jobsub> --expected-lifetime=16h </jobsub>
   </stage>
 
   <!-- file type -->
